@@ -1,11 +1,11 @@
 package com.revature.model;
-
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -35,4 +35,7 @@ public class Prescription {
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    @Transient
+    private Pharmacist pharmacist;
 }

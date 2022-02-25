@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="58e9a40c-2f36-4ee9-8a9d-abbed76bd0d4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="25VdFp2QbWeYaKL60mJBe07i4Nc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/project2/model" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kenob\OneDrive\Documents\project 2\project-2\kennethDesk\Code\project2\project2\src\main\java\com\example\project2\model" />
+      <recent name="C:\Users\kenob\OneDrive\Documents\project 2\project-2\kennethDesk\Code\project2\project2\src\main\java\com\example\project2" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.project2.utils" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Project2Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.project2.Project2Application" />
+      <module name="project2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.project2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Project2Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58e9a40c-2f36-4ee9-8a9d-abbed76bd0d4" name="Changes" comment="" />
+      <created>1645616091528</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1645616091528</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

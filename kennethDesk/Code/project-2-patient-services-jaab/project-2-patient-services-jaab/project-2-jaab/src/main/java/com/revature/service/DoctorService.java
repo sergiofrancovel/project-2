@@ -1,12 +1,11 @@
 package com.revature.service;
 
-import com.revature.dao.AppointmentRepository;
-import com.revature.dao.DoctorRepository;
-import com.revature.dao.PatientNoteRepository;
-import com.revature.dao.PatientRepository;
+import com.revature.dao.*;
 import com.revature.dto.DoctorDTO;
 import com.revature.dto.PatientNoteDTO;
+import com.revature.dto.PrescriptionDTO;
 import com.revature.model.*;
+import com.revature.model.Status;
 import com.revature.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +30,12 @@ public class DoctorService {
     PatientNoteRepository patientNoteRepo;
     @Autowired
     AppointmentRepository appointRepo;
+
+    @Autowired
+    PrescriptionRepository prepRepo;
+
+    @Autowired
+    PharmacistRepository phrepo;
 
     public Doctor saveDoctor(DoctorDTO em) throws Exception {
 
@@ -65,7 +70,7 @@ public class DoctorService {
         return patientRepository.findById(id);
     }
 
-    public Patient medicalRecords(Notes note){
+    public Patient medicalRecords(Notes note) throws Exception{
         PatientNote pn = new PatientNote();
         Optional<Doctor> getdoctor = doctorRepository.findById(note.getDoctor_id());
         Doctor doctor = getdoctor.isPresent()?getdoctor.get():null;
@@ -78,15 +83,16 @@ public class DoctorService {
             patientNoteRepo.save(pn);
         }else{
             logger.info("invalid doctor id or patient id");
+            throw new Exception();
         }
         return patient;
 
     }
-    public List<PatientNote> filterPatient(int id){
+    private List<PatientNote> filterPatient(int id){
         List<PatientNote> filter = patientNoteRepo.findByPatient(id);
         return filter;
     }
-    public List<PatientNote> filterDoctor(int id){
+    private List<PatientNote> filterDoctor(int id){
         List<PatientNote> filter = patientNoteRepo.findByRecordingDoctor(id);
 
         return filter;
@@ -142,6 +148,40 @@ public class DoctorService {
             logger.info("invalid doctor id or patient id");
         }
         return appointment;
+
+
+    }
+    private Pharmacist getphamEmail (String email){
+        Pharmacist getit = phrepo.findByEmail(email);
+        return getit;
+    }
+
+    public Prescription prescription (PrescriptionDTO pdto){
+        Pharmacist pharmacist = getphamEmail(pdto.getPharmacist_email());
+        Prescription prescription = new Prescription();
+        Optional<Doctor> getdoc = doctorRepository.findById(pdto.getDoctor_id());
+        Doctor doctor = getdoc.isPresent()? getdoc.get():null;
+        Optional<Patient> getPatient = findPatientbyId(pdto.getPatient_id());
+        Patient patient = getPatient.isPresent()? getPatient.get():null;
+
+        if(pharmacist==null){
+            logger.info("this email does not exist");
+        }else{
+
+        if(doctor!=null & patient !=null){
+            prescription.setDoctor(doctor);
+            prescription.setPatient(patient);
+            prescription.setStatus(Status.PENDING);
+            prescription.setDosage(pdto.getDosage());
+            prescription.setMedicineName(pdto.getMedicineName());
+            prescription.setPharmacist(pharmacist);
+            prepRepo.save(prescription);
+
+        }else{
+            logger.info("wrong doctor id or patient id");
+        }}
+        return prescription;
+
 
 
     }

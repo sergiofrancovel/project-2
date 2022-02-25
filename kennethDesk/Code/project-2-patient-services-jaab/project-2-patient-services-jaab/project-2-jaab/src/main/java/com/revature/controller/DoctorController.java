@@ -2,8 +2,10 @@ package com.revature.controller;
 
 
 import com.revature.dto.DoctorDTO;
+import com.revature.dto.PrescriptionDTO;
 import com.revature.model.Appointment;
 import com.revature.model.Patient;
+import com.revature.model.Prescription;
 import com.revature.service.DoctorService;
 import com.revature.utils.DoctorDetails;
 import com.revature.utils.Notes;
@@ -41,12 +43,10 @@ public class DoctorController {
     }
     @PostMapping(value = "/doctorNote", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity doctorNote(@RequestBody Notes notes)  {
-
-            Patient patient = doctorService.medicalRecords(notes);
-            if(patient!=null) {
-                //restTemplate.postForEntity("", patient, null);
+            try {
+                doctorService.medicalRecords(notes);
                 return ResponseEntity.status(HttpStatus.OK).body("note submitted successfully");
-            }else {
+            }catch (Exception e){
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("doctors id or patient id is incorrect");
             }
     }
@@ -74,6 +74,15 @@ public class DoctorController {
         }
 
 
+    }
+    @PostMapping(value = "/prescription", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity prescription(@RequestBody PrescriptionDTO dto){
+        Prescription prep = doctorService.prescription(dto);
+        if (prep.getDoctor()!=null && prep.getPatient()!=null && prep.getPharmacist()!=null){
+            return ResponseEntity.status(HttpStatus.OK).body("prescription is sent");
+        }else{
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("invalid credentials");
+        }
     }
 
 

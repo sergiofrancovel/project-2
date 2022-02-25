@@ -1,14 +1,15 @@
 package com.revature.dto;
-
 import com.revature.model.Status;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PrescriptionDTO {
-    private Integer id;
+    private int doctor_id;
+    private int patient_id;
     private String medicineName;
     private Float dosage;
     private Status status;
+    private String pharmacist_email;
 }
