@@ -35,10 +35,6 @@ public class Doctor {
     @Column(name = "specialty")
     private String specialty;
 
-    @OneToMany(mappedBy = "doctor")
-    @ToString.Exclude
-    private List<Patient> patient;
-
     @Column(name = "role", nullable = false)
     private Role role;
 }

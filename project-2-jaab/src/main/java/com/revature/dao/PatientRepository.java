@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 @Transactional
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
-    @Query("FROM Patient p where p.firstName like :firstName or p.lastName like :lastName")
+    @Query("FROM Patient p where p.firstName = :firstName and  p.lastName = :lastName")
     Patient getPatientByFirstNameAndLastName(@Param("firstName") String firstName, @Param("lastName") String lastName);
 
     @Modifying

@@ -1,6 +1,6 @@
 package com.revature.dto;
 
-import com.example.project2_main.model.Status;
+import com.revature.model.Status;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @RequiredArgsConstructor
-@NoArgsConstructor
 public class DoctorDTO {
     private Integer id;
     private String firstName;

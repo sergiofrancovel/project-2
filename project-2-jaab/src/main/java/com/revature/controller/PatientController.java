@@ -7,35 +7,27 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 @RestController
 public class PatientController {
 
-    private PatientService patientService;
+    private final PatientService patientService;
 
     @Autowired
     public PatientController(PatientService patientService) {
         this.patientService = patientService;
     }
 
-    @GetMapping(value = "/doctors/patientInfo/", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @GetMapping(value = "/doctors/patientInfo/{firstName}/{lastName}", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PatientDTO> getPatientByName(String firstName, String lastName) throws URISyntaxException {
-
+    public ResponseEntity<PatientDTO> getPatientByName(@PathVariable String firstName, @PathVariable String lastName) {
         PatientDTO patientDTO = patientService.getPatientByName(firstName, lastName);
-        Integer patientId = patientDTO.getId();
-
-        return ResponseEntity.created(new URI("http://localhost:8880/docors/patientInfo/" + patientId)).build();
+        return ResponseEntity.ok(patientDTO);
     }
 
     @PatchMapping(value = "/patients/{patientId}", consumes = MediaType.APPLICATION_JSON_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PatientDTO> updateEmail(@PathVariable Integer patientId, String email){
-
-        patientService.updateEmail(patientId, email);
-
-        return ResponseEntity.ok().build();
+    public ResponseEntity<PatientDTO> updateEmail(@PathVariable Integer patientId, @RequestBody PatientDTO patientDTO){
+        patientDTO = patientService.updateEmail(patientId, patientDTO.getEmail());
+        return ResponseEntity.ok(patientDTO);
     }
 }

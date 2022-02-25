@@ -20,7 +20,6 @@ public class PatientService {
     /**
      * Retrieves patient data based on their first and last name
      * @param firstName - The patient's first name
-     * @param lastName - The patient's last name
      * @return - PatientDTO
      */
     public PatientDTO getPatientByName(String firstName, String lastName){
@@ -34,10 +33,11 @@ public class PatientService {
      * Allows a patient to update their email
      * @param email - The new email
      */
-    public void updateEmail(Integer id, String email){
+    public PatientDTO updateEmail(Integer id, String email){
         PatientDTO patientDTO = new PatientDTO();
         Patient patient = patientRepository.getById(id);
+        patientRepository.updateEmail(patient.getId(), email);
         BeanUtils.copyProperties(patient, patientDTO);
-        patientRepository.updateEmail(patientDTO.getId(), email);
+        return patientDTO;
     }
 }

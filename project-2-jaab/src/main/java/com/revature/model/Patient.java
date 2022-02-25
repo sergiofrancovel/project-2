@@ -29,19 +29,9 @@ public class Patient {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "primary_doctor")
-    private Doctor doctor;
-
     @Column(name = "phone_number", nullable = false)
     private Long phoneNumber;
 
     @Column(name = "blood_type", nullable = false)
     private String bloodType;
-
-    @Column(name = "patient_notes")
-    private String notes;
-
-    @Column(name = "role", nullable = false)
-    private Role role;
 }
