@@ -3,10 +3,7 @@ package com.revature.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.revature.model.Doctor;
 import com.revature.model.Patient;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
@@ -17,12 +14,13 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class EmailAppointmentDTO {
-    private Integer id;
+    private String patientEmail;
     private String doctorfn;
     private String doctorln;
     private String patientfn;
     private String patientln;
     private String schedule;
-    private Long appointmentTime;
+    private Date appointmentTime;
 }

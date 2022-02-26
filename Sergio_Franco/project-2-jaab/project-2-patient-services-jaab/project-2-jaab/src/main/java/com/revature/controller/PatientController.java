@@ -27,7 +27,7 @@ public class PatientController {
         PatientDTO patientDTO = patientService.getPatientByName(firstName, lastName);
         Integer patientId = patientDTO.getId();
 
-        return ResponseEntity.created(new URI("http://localhost:8880/docors/patientInfo/" + patientId)).build();
+        return ResponseEntity.created(new URI("http://localhost:8880/doctors/patientInfo/" + patientId)).build();
     }
 
     @PatchMapping(value = "/patients/{patientId}", consumes = MediaType.APPLICATION_JSON_VALUE,

@@ -1,5 +1,8 @@
 package com.revature;
 
+import com.revature.dao.PatientRepository;
+import com.revature.service.DoctorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -22,7 +25,7 @@ public class Project2JaabApplication {
 
     @Bean
     public void CommandLineRunner(){
-        System.out.println("hello");
+
     }
 
 }

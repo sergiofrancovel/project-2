@@ -1,7 +1,7 @@
 package com.example.email.controllers;
 
 import com.example.email.dto.EmailAppointmentDTO;
-import com.example.email.dto.PatientNoteDTO;
+import com.example.email.dto.EmailNoteDTO;
 import com.example.email.services.EmailTemplates;
 import com.example.email.services.EmailServiceIntImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +23,13 @@ public class EmailController {
     public ResponseEntity createNewAppointment(@RequestBody EmailAppointmentDTO emailAppointmentDTO){
         EmailTemplates emailTemplates = new EmailTemplates();
         emailTemplates.setNewAppointment(emailAppointmentDTO);
-        service.sendSimpleMessageForOrder("emailreimbursement@gmail.com", emailTemplates.getNewAppointment(),
+        service.sendSimpleMessageForOrder(emailAppointmentDTO.getPatientEmail(), emailTemplates.getNewAppointment(),
                 "Your new appointment has been scheduled");
         return ResponseEntity.noContent().build();
     }
 
     @PostMapping(value = "newpatientnote", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity createNewDoctorNote(@RequestBody PatientNoteDTO noteDTO){
+    public ResponseEntity createNewDoctorNote(@RequestBody EmailNoteDTO noteDTO){
         EmailTemplates emailTemplates = new EmailTemplates();
         emailTemplates.createPatientNote(noteDTO);
         service.sendSimpleMessageForOrder(noteDTO.getEmail(), emailTemplates.getPatientNote(),

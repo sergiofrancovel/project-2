@@ -18,7 +18,7 @@ public class EmailServiceIntImpl implements EmailServiceInt {
 
         SimpleMailMessage message = new SimpleMailMessage();
 
-        message.setFrom("reimbursementspring@gamil.com");
+        message.setFrom("hospitalemailnotifications@gamil.com");
         message.setTo(toEmail);
         message.setSubject(subject);
         message.setText(emailBody);

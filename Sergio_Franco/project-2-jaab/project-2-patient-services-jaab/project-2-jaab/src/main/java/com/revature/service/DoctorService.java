@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -75,7 +76,7 @@ public class DoctorService {
             pn.setDoctor(doctor);
             pn.setPatient(patient);
             pn.setNotes(note.getNotes());
-            patientNoteRepo.save(pn);
+            //patientNoteRepo.save(pn);
         }else{
             logger.info("invalid doctor id or patient id");
         }
@@ -116,7 +117,7 @@ public class DoctorService {
                 String doctorFullName = e.getDoctor().getFirstName() +","+e.getDoctor().getLastName();
                 patientNoteDTO.setDoctor(doctorFullName);
                 patientNoteDTO.setNotes(e.getNotes());
-                //patientNoteDTO.setDateCreated(e.getDateCreated());
+                patientNoteDTO.setDateCreated(e.getDateCreated());
                 return patientNoteDTO;
             }).collect(Collectors.toList());
 
@@ -137,13 +138,15 @@ public class DoctorService {
             appointment.setPatient(patient);
             appointment.setSchedule(detail.getSchedule());
             appointment.setAppointmentTime(detail.getAppointmentTime());
-            appointRepo.save(appointment);
+            //appointRepo.save(appointment);
         }else{
             logger.info("invalid doctor id or patient id");
         }
         return appointment;
+    }
 
-
+    public Doctor getDoctorById(int id){
+        return doctorRepository.findDoctorById(id);
     }
 
 }

@@ -6,16 +6,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmailAppointmentDTO {
-    private Integer id;
+    private String patientEmail;
     private String doctorfn;
     private String doctorln;
     private String patientfn;
     private String patientln;
     private String schedule;
-    private Long appointmentTime;
+    private Date appointmentTime;
 }
