@@ -44,7 +44,6 @@ public class DoctorService {
         Doctor checkEmail = doctorRepository.findByEmail(em.getEmail());
         if(checkEmail!=null)
         {
-
             logger.info("email already exist");
             throw new Exception();
         }
@@ -56,7 +55,6 @@ public class DoctorService {
             e.setEmail(em.getEmail());
             e.setFirstName(em.getFirstName());
             e.setLastName(em.getLastName());
-            e.setSpecialty(em.getSpecialty());
             e.setPassword(encodedPassword);
             e.setRoles(Role.PHYSICIAN);
             doctorRepository.save(e);

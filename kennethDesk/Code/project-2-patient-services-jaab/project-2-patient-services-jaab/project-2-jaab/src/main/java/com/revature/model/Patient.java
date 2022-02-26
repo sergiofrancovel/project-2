@@ -1,9 +1,6 @@
 package com.revature.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,10 +8,12 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "patient")
 public class Patient {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -42,4 +41,14 @@ public class Patient {
 
     @Transient
     private Doctor doctor;
+
+    public Patient(Integer id, String firstName, String lastName, String email, String password, Long phoneNumber, String bloodType) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.bloodType = bloodType;
+    }
 }

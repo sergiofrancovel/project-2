@@ -12,6 +12,15 @@ import java.util.List;
 @Entity
 @Table(name = "doctor")
 public class Doctor {
+    public Doctor(Integer id, String firstName, String lastName, String email, String password, Role roles) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -27,9 +36,6 @@ public class Doctor {
 
     @Column(name = "password", nullable = false)
     private String password;
-
-    @Column(name = "specialty")
-    private String specialty;
 
     @Enumerated(EnumType.STRING)
     private Role roles;
