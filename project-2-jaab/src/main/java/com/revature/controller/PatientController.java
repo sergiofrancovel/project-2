@@ -1,21 +1,28 @@
 package com.revature.controller;
 
 import com.revature.dto.PatientDTO;
+import com.revature.model.Patient;
 import com.revature.service.PatientService;
+import com.revature.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class PatientController {
 
     private final PatientService patientService;
+    private final UserService userService;
 
     @Autowired
-    public PatientController(PatientService patientService) {
+    public PatientController(PatientService patientService, UserService userService) {
         this.patientService = patientService;
+        this.userService = userService;
     }
+
 
     @GetMapping(value = "/doctors/patientInfo/{firstName}/{lastName}", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -29,5 +36,18 @@ public class PatientController {
     public ResponseEntity<PatientDTO> updateEmail(@PathVariable Integer patientId, @RequestBody PatientDTO patientDTO){
         patientDTO = patientService.updateEmail(patientId, patientDTO.getEmail());
         return ResponseEntity.ok(patientDTO);
+    }
+
+    @GetMapping("/newPatient")
+    public String newPatientForm(Model model){
+        Patient patient = new Patient();
+        model.addAttribute("patient", patient);
+        return "new_patient";
+    }
+
+    @PostMapping("/newPatient")
+    public String createNewPatient(@ModelAttribute("patient") Patient patient){
+        userService.createPatient(patient);
+        return "register_success";
     }
 }
