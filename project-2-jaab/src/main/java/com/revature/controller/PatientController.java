@@ -45,7 +45,7 @@ public class PatientController {
         Patient patient = new Patient();
         model.addAttribute("user", user);
         model.addAttribute("patient", patient);
-        return "new_patient";
+        return "patient/new_patient";
     }
 
     @PostMapping("/newPatient")

@@ -2,21 +2,25 @@ package com.revature.service;
 
 import com.revature.dao.DoctorRepository;
 import com.revature.dao.PatientRepository;
+import com.revature.dao.PharmacistRepository;
 import com.revature.dao.UserRepository;
-import com.revature.model.Doctor;
-import com.revature.model.Patient;
-import com.revature.model.Role;
-import com.revature.model.User;
+import com.revature.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * This class serves as a service for adding users to the user database and their respective databases based on their
+ * role.
+ * @author Joseph Barr
+ */
 @Service
 public class UserService {
 
     private UserRepository userRepository;
     private PatientRepository patientRepository;
     private DoctorRepository doctorRepository;
+    private PharmacistRepository pharmacistRepository;
 
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
@@ -31,6 +35,11 @@ public class UserService {
     @Autowired
     public void setDoctorRepository(DoctorRepository doctorRepository) {
         this.doctorRepository = doctorRepository;
+    }
+
+    @Autowired
+    public void setPharmacistRepository(PharmacistRepository pharmacistRepository) {
+        this.pharmacistRepository = pharmacistRepository;
     }
 
     /**
@@ -55,6 +64,17 @@ public class UserService {
         userRepository.save(user);
         BeanUtils.copyProperties(user, doctor);
         doctorRepository.save(doctor);
+    }
 
+    /**
+     * Creates a new pharmacist and adds them to the user and pharmacist databases
+     * @param user - The user to be added
+     * @param pharmacist - The pharmacist to be added
+     */
+    public void createPharmacist(User user, Pharmacist pharmacist){
+        user.setRole(Role.PHARMACIST);
+        userRepository.save(user);
+        BeanUtils.copyProperties(user, pharmacist);
+        pharmacistRepository.save(pharmacist);
     }
 }

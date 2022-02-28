@@ -15,7 +15,6 @@ import javax.persistence.*;
 @Table(name = "pharmacist")
 public class Pharmacist {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -30,8 +29,5 @@ public class Pharmacist {
 
     @Column(name = "password", nullable = false)
     private String password;
-
-    @Column(name = "role", nullable = false)
-    private Role role;
 
 }
