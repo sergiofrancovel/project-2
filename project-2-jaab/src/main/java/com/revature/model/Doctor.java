@@ -16,7 +16,6 @@ import java.util.List;
 @Table(name = "doctor")
 public class Doctor {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -34,7 +33,4 @@ public class Doctor {
 
     @Column(name = "specialty")
     private String specialty;
-
-    @Column(name = "role", nullable = false)
-    private Role role;
 }

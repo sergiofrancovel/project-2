@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import com.revature.dto.PatientDTO;
 import com.revature.model.Patient;
+import com.revature.model.User;
 import com.revature.service.PatientService;
 import com.revature.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,14 +41,16 @@ public class PatientController {
 
     @GetMapping("/newPatient")
     public String newPatientForm(Model model){
+        User user = new User();
         Patient patient = new Patient();
+        model.addAttribute("user", user);
         model.addAttribute("patient", patient);
         return "new_patient";
     }
 
     @PostMapping("/newPatient")
-    public String createNewPatient(@ModelAttribute("patient") Patient patient){
-        userService.createPatient(patient);
+    public String createNewPatient(@ModelAttribute("user") User user, @ModelAttribute("patient") Patient patient){
+        userService.createPatient(user, patient);
         return "register_success";
     }
 }
