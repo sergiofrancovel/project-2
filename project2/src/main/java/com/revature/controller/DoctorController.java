@@ -4,7 +4,6 @@ package com.revature.controller;
 import com.revature.dto.DoctorDTO;
 import com.revature.dto.PrescriptionDTO;
 import com.revature.model.Appointment;
-import com.revature.model.Patient;
 import com.revature.model.Prescription;
 import com.revature.service.DoctorService;
 import com.revature.utils.DoctorDetails;
@@ -16,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/hospital")
@@ -25,8 +23,6 @@ public class DoctorController {
     @Autowired
     DoctorService doctorService;
 
-    @Autowired
-    RestTemplate restTemplate;
 
     @PostMapping(value = "/addDoctor", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addDoctor(@RequestBody DoctorDTO em) {
