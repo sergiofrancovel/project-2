@@ -2,7 +2,6 @@ package com.example.email.dto;
 
 import lombok.*;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

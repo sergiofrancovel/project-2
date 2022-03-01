@@ -6,9 +6,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Data
 @Getter
-@Setter
 public class EmailTemplates {
 
     private String newAppointment;
