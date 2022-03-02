@@ -1,5 +1,8 @@
 package com.revature;
 
+import com.revature.model.Patient;
+import com.revature.model.Role;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -18,6 +21,14 @@ public class Project2JaabApplication {
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
+    }
+
+    @Bean
+    public CommandLineRunner runner(){
+        return args -> {
+//            Patient patient = new Patient("John", "Shepard", "commandershepard@systemalliance.org", "NormandySR2",
+//                    "855-264-1147", "AB-", "metal implants", Role.PATIENT);
+        };
     }
 
 }

@@ -40,4 +40,12 @@ public class PatientService {
         BeanUtils.copyProperties(patient, patientDTO);
         patientRepository.updateEmail(patientDTO.getId(), email);
     }
+    //Below is a way joseph had it implemented cant find a notable difference other than one is void other returns
+//    public PatientDTO updateEmail(Integer id, String email){
+//        PatientDTO patientDTO = new PatientDTO();
+//        Patient patient = patientRepository.getById(id);
+//        patientRepository.updateEmail(patient.getId(), email);
+//        BeanUtils.copyProperties(patient, patientDTO);
+//        return patientDTO;
+//    }
 }

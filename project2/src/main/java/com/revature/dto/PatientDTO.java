@@ -12,4 +12,5 @@ public class PatientDTO {
     private Long phoneNumber;
     private String bloodType;
     private String notes;
+    private String email;
 }

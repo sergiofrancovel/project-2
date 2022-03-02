@@ -20,6 +20,7 @@ public class Appointment {
     private int id;
 
 
+    //Josephs code included @manytoone before requesting_doctor and patient_for im not currently including it
     @Column(name = "requesting_doctor")
     private  int doctor;
 

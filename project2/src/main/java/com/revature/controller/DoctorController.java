@@ -4,8 +4,11 @@ package com.revature.controller;
 import com.revature.dto.DoctorDTO;
 import com.revature.dto.PrescriptionDTO;
 import com.revature.model.Appointment;
+import com.revature.model.Doctor;
 import com.revature.model.Prescription;
+import com.revature.model.User;
 import com.revature.service.DoctorService;
+import com.revature.service.UserService;
 import com.revature.utils.DoctorDetails;
 import com.revature.utils.Notes;
 import com.revature.utils.PatientResponse;
@@ -14,14 +17,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/hospital")
 public class DoctorController {
 
+    private final UserService userService;
+
     @Autowired
     DoctorService doctorService;
+
+    @Autowired
+    public DoctorController(UserService userService) {
+        this.userService = userService;
+    }
+
+    /**
+     * gets the new doctor that was created
+     * @param model
+     * @return
+     */
+    @GetMapping("/newDoctor")
+    public String newDoctorForm(Model model){
+        User user = new User();
+        Doctor doctor = new Doctor();
+        model.addAttribute("user", user);
+        model.addAttribute("doctor", doctor);
+        return "doctor/new_doctor";
+    }
+
+    /**
+     * creates a new doctor and a role assosiated with the doctors login
+     * @param user
+     * @param doctor
+     * @return
+     */
+    @PostMapping("/newDoctor")
+    public String createNewDoctor(@ModelAttribute("user") User user, @ModelAttribute("doctor") Doctor doctor){
+        userService.createDoctor(user, doctor);
+        return "register_success";
+    }
 
 
     @PostMapping(value = "/addDoctor", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -34,9 +72,8 @@ public class DoctorController {
             e.getMessage();
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("email already exist");
         }
-
-
     }
+
     @PostMapping(value = "/doctorNote", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity doctorNote(@RequestBody Notes notes)  {
             try {
