@@ -8,10 +8,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.Set;
 
 @Repository
 @Transactional
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
+
+    @Query("from Patient p order by p.lastName")
+    Set<Patient> getAllPatients();
 
     @Query("FROM Patient p where p.firstName = :firstName and  p.lastName = :lastName")
     Patient getPatientByFirstNameAndLastName(@Param("firstName") String firstName, @Param("lastName") String lastName);

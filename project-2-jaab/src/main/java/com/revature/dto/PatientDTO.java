@@ -13,5 +13,4 @@ public class PatientDTO {
     private String primaryDoctor;
     private Long phoneNumber;
     private String bloodType;
-    private String notes;
 }

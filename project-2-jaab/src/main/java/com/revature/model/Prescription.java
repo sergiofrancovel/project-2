@@ -19,21 +19,19 @@ public class Prescription {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "requesting_doctor")
-    private Doctor doctor;
-
-    @ManyToOne
-    @JoinColumn(name = "patient_for")
-    private Patient patient;
-
     @Column(name = "medicine_name", nullable = false)
     private String medicineName;
 
     @Column(name = "cc", nullable = false)
-    private Float dosage;
+    private Integer dosage;
 
-    @Column(name = "status")
+    @Column(name = "requesting_doctor", nullable = false)
+    private Integer doctorId;
+
+    @Column(name = "patient_for", nullable = false)
+    private Integer patientId;
+
+    @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
 }

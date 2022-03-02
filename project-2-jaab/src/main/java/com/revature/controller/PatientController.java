@@ -1,8 +1,11 @@
 package com.revature.controller;
 
+import com.revature.dto.DoctorDTO;
 import com.revature.dto.PatientDTO;
+import com.revature.model.Email;
 import com.revature.model.Patient;
 import com.revature.model.User;
+import com.revature.service.DoctorService;
 import com.revature.service.PatientService;
 import com.revature.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +19,15 @@ import org.springframework.web.bind.annotation.*;
 public class PatientController {
 
     private final PatientService patientService;
+    private final DoctorService doctorService;
     private final UserService userService;
 
     @Autowired
-    public PatientController(PatientService patientService, UserService userService) {
+    public PatientController(PatientService patientService, DoctorService doctorService, UserService userService) {
         this.patientService = patientService;
+        this.doctorService = doctorService;
         this.userService = userService;
     }
-
 
     @GetMapping(value = "/doctors/patientInfo/{firstName}/{lastName}", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -52,5 +56,25 @@ public class PatientController {
     public String createNewPatient(@ModelAttribute("user") User user, @ModelAttribute("patient") Patient patient){
         userService.createPatient(user, patient);
         return "register_success";
+    }
+
+    @GetMapping("/patient/{patientId}/contactPhysician")
+    public String loadEmailForm(Model model, @PathVariable Integer patientId){
+        Email email = new Email();
+        PatientDTO patientDTO = patientService.getPatientById(patientId);
+        DoctorDTO doctorDTO = new DoctorDTO();
+        model.addAttribute("email", email);
+        model.addAttribute("doctorDTO", doctorDTO);
+        model.addAttribute("patientDTO", patientDTO);
+        return "patient/contact_doctor";
+    }
+
+    @PostMapping("/patient/{patientId}/contactPhysician")
+    public ResponseEntity<Email> sendEmail(@PathVariable Integer patientId,
+                                           String firstName, String lastName){
+        PatientDTO patientDTO = patientService.getPatientById(patientId);
+        DoctorDTO doctorDTO = doctorService.getDoctorByName(firstName, lastName);
+        patientService.contactPhysician(patientDTO, doctorDTO);
+        return ResponseEntity.ok().build();
     }
 }

@@ -35,3 +35,12 @@ a {
     height: 100vh;
     font-family: Bahnschrift, sans-serif;
 }
+
+#new-user {
+    margin: 1rem;
+}
+
+#new-user a{
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
