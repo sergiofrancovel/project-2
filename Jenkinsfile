@@ -1,15 +1,67 @@
 pipeline {
-    agent any
-    stages {
-        stage('Test') {
-            steps {
-                echo 'Hello World'
-            }
-        }
+    environment{
+        registry = 'sergiofrancovel/project-2'
+        dockerHubCreds = 'Docker_hub'
+        dockerImage = ''
     }
-    post { 
-        always { 
-            echo 'I will always say Hello again!'
+  agent any
+  stages {
+    stage('Test') {
+        when{
+        branch 'kenneth_offor'
         }
-    }
+      steps {
+        sh 'ls $WORKSPACE '
+        dir("project2") {
+        sh 'echo "Hello World"'
+          withMaven {
+            sh 'mvn test'
+          }
+         }
+        }
+       }
+          stage('Build') {
+               when {
+                   branch 'main'
+               }
+               steps {
+                    sh 'ls $WORKSPACE '
+                            dir("project2") {
+                            sh 'echo "Hello World"'
+                   withMaven {
+                       sh 'mvn clean package -DskipTests'
+                   }
+               }
+               }
+           }
+            stage('Docker Build') {
+                   when {
+                       branch 'main'
+                   }
+                   steps {
+                        dir("project2") {
+                       script {
+                           echo "$registry:$currentBuild.number"
+                           dockerImage = docker.build "$registry"
+                       }
+                   }
+               }
+             }
+             stage('Docker Deliver') {
+                     when {
+                         branch 'main'
+                     }
+                     steps {
+                             dir("project2") {
+                         script {
+                             docker.withRegistry('', dockerHubCreds) {
+                                 dockerImage.push("$currentBuild.number")
+                                 dockerImage.push("latest")
+                             }
+                         }
+                     }
+                 }
+               }
 }
+}
+
