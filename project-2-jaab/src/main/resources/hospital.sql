@@ -35,10 +35,10 @@ create table if not exists pharmacist (
 create table if not exists prescription (
     id serial primary key,
     medicine_name varchar(30) not null,
-    cc decimal(3,1) not null,
+    cc int not null,
     requesting_doctor bigint not null,
     patient_for bigint not null,
-    status varchar(13) default 'PENDING' not null
+    status varchar(13) not null
 );
 
 create table if not exists users (
