@@ -7,6 +7,8 @@ import lombok.Setter;
 @Setter
 public class PharmacistDTO {
     private Integer id;
+    private String email;
     private String firstName;
     private String lastName;
+    private String password;
 }

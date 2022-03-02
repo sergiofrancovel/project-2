@@ -21,13 +21,13 @@ public class Appointment {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "requesting_doctor")
-    private Doctor doctor;
+//    @ManyToOne
+//    @JoinColumn(name = "requesting_doctor")
+//    private Doctor doctor;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_for")
-    private Patient patient;
+//    @ManyToOne
+//    @JoinColumn(name = "patient_for")
+//    private Patient patient;
 
     @Column(name = "schedule", nullable = false)
     private String schedule;

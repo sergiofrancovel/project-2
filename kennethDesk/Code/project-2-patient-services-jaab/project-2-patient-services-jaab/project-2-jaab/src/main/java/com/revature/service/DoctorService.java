@@ -126,24 +126,24 @@ public class DoctorService {
         return pr;
 
     }
-    public Appointment doctorAppointment(DoctorDetails detail){
-        Appointment appointment = new Appointment();
-        Optional<Doctor> getdoc = doctorRepository.findById(detail.getDoctor_id());
-        Doctor doctor = getdoc.isPresent()? getdoc.get():null;
-        Optional<Patient> getPatient = findPatientbyId(detail.getPatient_id());
-        Patient patient = getPatient.isPresent()? getPatient.get():null;
-        if(doctor!=null && patient !=null){
-            appointment.setDoctor(doctor);
-            appointment.setPatient(patient);
-            appointment.setSchedule(detail.getSchedule());
-            appointment.setAppointmentTime(detail.getAppointmentTime());
-            appointRepo.save(appointment);
-        }else{
-            logger.info("invalid doctor id or patient id");
-        }
-        return appointment;
-
-
-    }
+//    public Appointment doctorAppointment(DoctorDetails detail){
+//        Appointment appointment = new Appointment();
+//        Optional<Doctor> getdoc = doctorRepository.findById(detail.getDoctor_id());
+//        Doctor doctor = getdoc.isPresent()? getdoc.get():null;
+//        Optional<Patient> getPatient = findPatientbyId(detail.getPatient_id());
+//        Patient patient = getPatient.isPresent()? getPatient.get():null;
+//        if(doctor!=null && patient !=null){
+//            appointment.setDoctor(doctor);
+//            appointment.setPatient(patient);
+//            appointment.setSchedule(detail.getSchedule());
+//            appointment.setAppointmentTime(detail.getAppointmentTime());
+//            appointRepo.save(appointment);
+//        }else{
+//            logger.info("invalid doctor id or patient id");
+//        }
+//        return appointment;
+//
+//
+//    }
 
 }

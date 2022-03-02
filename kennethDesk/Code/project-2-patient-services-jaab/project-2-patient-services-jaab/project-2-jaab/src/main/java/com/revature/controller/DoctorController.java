@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/hospital")
-public class DoctorController {
+public class    DoctorController {
 
     @Autowired
     DoctorService doctorService;
@@ -36,8 +36,7 @@ public class DoctorController {
             e.getMessage();
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("email already exist");
         }
-
-
+        
     }
     @PostMapping(value = "/doctorNote", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity doctorNote(@RequestBody Notes notes)  {
@@ -51,15 +50,15 @@ public class DoctorController {
             }
     }
 
-    @PostMapping(value ="/appointment", produces = MediaType.APPLICATION_JSON_VALUE)
-            public ResponseEntity doctorAppointment(@RequestBody DoctorDetails d){
-        Appointment appointment = doctorService.doctorAppointment(d);
-        if(appointment.getDoctor() !=null && appointment.getPatient()!=null){
-            return ResponseEntity.status(HttpStatus.OK).body("Appointment is sent");
-        }else{
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("doctors id or patient id is incorrect");
-        }
-    }
+//    @PostMapping(value ="/appointment", produces = MediaType.APPLICATION_JSON_VALUE)
+//            public ResponseEntity doctorAppointment(@RequestBody DoctorDetails d){
+//        Appointment appointment = doctorService.doctorAppointment(d);
+//        if(appointment.getDoctor() !=null && appointment.getPatient()!=null){
+//            return ResponseEntity.status(HttpStatus.OK).body("Appointment is sent");
+//        }else{
+//            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("doctors id or patient id is incorrect");
+//        }
+//    }
 
     @GetMapping(value = "/patientRecords", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity userAccount(@RequestBody Patientid em) {
