@@ -1,0 +1,33 @@
+body{
+    width: 100%;
+    background-image: url("../img/project_2.jpg");
+}
+
+h1{
+    text-align: center;
+    color: deepskyblue;
+}
+
+label {
+    margin-bottom: 2rem;
+}
+
+a {
+    font-size: 2rem;
+}
+
+.card{
+    width: 18rem;
+    height: 18rem;
+    margin: 1rem;
+}
+
+.card-body{
+    text-align: center;
+    background-color: lavender;
+}
+
+#options {
+    height: 100vh;
+    font-family: Bahnschrift, sans-serif;
+}
