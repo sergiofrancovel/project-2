@@ -1,0 +1,10 @@
+body{
+    width: 100%;
+    background-image: url("../img/project_2.jpg");
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
