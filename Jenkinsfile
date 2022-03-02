@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Test') {
         when{
-        branch 'kenneth_offor'
+        branch 'Features'
         }
       steps {
         sh 'ls $WORKSPACE '
