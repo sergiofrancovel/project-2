@@ -1,6 +1,6 @@
 pipeline {
     environment{
-        registry = 'sergiofrancovel/project-2'
+        registry = 'keoffor/project-2'
         dockerHubCreds = 'Docker_hub'
         dockerImage = ''
     }
