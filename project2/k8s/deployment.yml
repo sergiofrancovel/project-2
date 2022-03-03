@@ -1,0 +1,55 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project2-deployment
+  labels:
+    app: project
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: project2
+  template:
+    metadata:
+      labels:
+        app: project2
+    spec:
+      containers:
+        - image: keoffor/project2:%TAG%
+          imagePullPolicy: Always
+          name: project2
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /hw
+              port: 8080
+          readinessProbe:
+            httpGet:
+              path: /hw
+              port: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: project2-service
+spec:
+  selector:
+    app: project2
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-ingress
+spec:
+  defaultBackend:
+    service:
+      name: project-service
+      port:
+        number: 8080
