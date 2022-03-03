@@ -58,6 +58,11 @@ public class PatientController {
         return "register_success";
     }
 
+    @GetMapping("/patient")
+    public String loadPatientHome(){
+        return "patient/patient_home";
+    }
+
     @GetMapping("/patient/{patientId}/contactPhysician")
     public String loadEmailForm(Model model, @PathVariable Integer patientId){
         Email email = new Email();
