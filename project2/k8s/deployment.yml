@@ -16,7 +16,7 @@ spec:
         app: project2
     spec:
       containers:
-        - image: keoffor/project-2:%TAG%
+        - image: keoffor/project-2:latest
           imagePullPolicy: Always
           name: project2
           ports:

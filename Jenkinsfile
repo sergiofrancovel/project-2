@@ -68,8 +68,8 @@ pipeline {
                        branch 'main'
                    }
                    steps{
-                      sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./k8s/deployment.yml'
-                      sh 'cat ./k8s/deployment.yml'
+                      sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" k8s/deployment.yml'
+                      sh 'cat k8s/deployment.yml'
                        step([$class: 'KubernetesEngineBuilder',
                            projectId: 'macro-key-339512',
                            clusterName: 'macro-key-339512-gke',
