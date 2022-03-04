@@ -13,7 +13,7 @@ pipeline {
       steps {
         sh 'ls $WORKSPACE '
         dir("project2") {
-        sh 'echo "Hello World"'
+        sh 'echo "running k8s.."'
           withMaven {
             sh 'mvn test'
           }
