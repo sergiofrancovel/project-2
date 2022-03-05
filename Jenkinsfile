@@ -21,7 +21,6 @@ pipeline {
          }
         }
        }
-       }
           stage('Build') {
                when {
                    branch 'main'
@@ -32,11 +31,11 @@ pipeline {
                             sh 'echo "Hello World"'
                    withMaven {
                        sh 'mvn clean package -DskipTests'
-                   }
-               }
-               }
-           }
-            stage('Docker Build') {
+              }
+            }
+          }
+        }
+        stage('Docker Build') {
                    when {
                        branch 'main'
                    }
@@ -59,11 +58,11 @@ pipeline {
                              docker.withRegistry('', dockerHubCreds) {
                                  dockerImage.push("$currentBuild.number")
                                  dockerImage.push("latest")
-                             }
-                     }
-                 }
+                  }
                }
-               }
+            }
+          }
+        }
            stage('Deploy to GKE') {
                    when {
                        branch 'main'
