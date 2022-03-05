@@ -1,26 +1,26 @@
 pipeline {
-    environment{
-        registry = 'keoffor/project-2'
-        dockerHubCreds = 'Docker_hub'
-        dockerImage = ''
-        deploymentFile = 'k8s/deployment.yml'
-    }
-  agent any
-  stages {
-    stage('Test') {
-        when{
-        branch 'Features'
+        environment{
+            registry = 'keoffor/project-2'
+            dockerHubCreds = 'Docker_hub'
+            dockerImage = ''
+            deploymentFile = 'k8s/deployment.yml'
         }
-      steps {
-        sh 'ls $WORKSPACE '
-        dir("project2") {
-        sh 'echo "Hello World"'
-          withMaven {
-            sh 'mvn test'
+      agent any
+    stages {
+        stage('Test') {
+            when{
+            branch 'Features'
+            }
+          steps {
+            sh 'ls $WORKSPACE '
+            dir("project2") {
+            sh 'echo "Hello World"'
+              withMaven {
+                sh 'mvn test'
+              }
+            }
+            }
           }
-         }
-        }
-       }
           stage('Build') {
                when {
                    branch 'main'
@@ -58,8 +58,10 @@ pipeline {
                              docker.withRegistry('', dockerHubCreds) {
                                  dockerImage.push("$currentBuild.number")
                                  dockerImage.push("latest")
+          
                   }
                }
+
             }
           }
         }
