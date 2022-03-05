@@ -21,6 +21,7 @@ pipeline {
          }
         }
        }
+       }
           stage('Build') {
                when {
                    branch 'main'
@@ -61,6 +62,7 @@ pipeline {
                              }
                      }
                  }
+               }
                }
            stage('Deploy to GKE') {
                    when {
