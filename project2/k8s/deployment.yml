@@ -21,14 +21,7 @@ spec:
           name: project2
           ports:
             - containerPort: 8080
-          livenessProbe:
-            httpGet:
-              path: /hw
-              port: 8080
-          readinessProbe:
-            httpGet:
-              path: /hw
-              port: 8080
+
 ---
 apiVersion: v1
 kind: Service
