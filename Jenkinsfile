@@ -40,12 +40,12 @@ pipeline {
                        branch 'main'
                    }
                    steps {
-
+                        dir("project2") {
                        script {
                            echo "$registry:$currentBuild.number"
                            dockerImage = docker.build "$registry"
                        }
-
+                   }
                }
              }
              stage('Docker Deliver') {
