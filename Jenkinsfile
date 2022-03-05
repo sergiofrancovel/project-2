@@ -50,7 +50,7 @@ pipeline {
              }
              stage('Docker Deliver') {
                      when {
-                         branches: [name: 'main']
+                         branch 'main'
                      }
                      steps {
                              dir("project2") {
