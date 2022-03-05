@@ -71,16 +71,17 @@ pipeline {
                    }
                    steps{
                         echo "build deployment " + deploymentFile
+                        dir("project2") {
 
                        step([$class: 'KubernetesEngineBuilder',
                            projectId: 'macro-key-339512',
                            clusterName: 'macro-key-339512-gke',
                            zone: 'us-central1',
-                           manifestPattern: 'project2/k8s/',
+                           manifestPattern: 'k8s/',
                            credentialsId: 'macro-key-339512',
                            verifyDeployments: true
                        ])
-
+          }
       }
     }
   }
