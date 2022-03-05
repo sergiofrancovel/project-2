@@ -37,7 +37,7 @@ pipeline {
         }
         stage('Docker Build') {
                    when {
-                       branch 'Development'
+                       branch 'main'
                    }
                    steps {
                         dir("project2") {
@@ -50,7 +50,7 @@ pipeline {
              }
              stage('Docker Deliver') {
                      when {
-                         branch 'Development'
+                         branch 'main'
                      }
                      steps {
                              dir("project2") {
