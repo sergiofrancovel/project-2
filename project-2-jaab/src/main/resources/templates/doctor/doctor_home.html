@@ -3,33 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Doctor Home Page</title>
-    <link th:href="@{/css/login_and_home.css}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link th:href="@{/css/home.css}" rel="stylesheet">
 </head>
 <body>
-        <h1>What would you like to do?</h1>
-        <div id="options" class="d-flex justify-content-center align-items-center">
-            <div class="card">
-                <div class="card-body">
-                    <a href="#">Check Email</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <a href="patient_search.html">Access Patient Records</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <a href="#">Update Patient Records</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <a href="pharmacy_request.html">Send A Request To The Pharmacy</a>
-                </div>
-            </div>
+<h1>What would you like to do?</h1>
+<div class="container">
+    <div class="options">
+        <div class="card">
+            <a href="#">Check Email</a>
         </div>
+        <div class="card">
+            <a th:href="@{/doctor/{id}/patientSearch(id = ${doctorDTO.getId()})}">Access Patient Records</a>
+        </div>
+        <div class="card">
+            <a href="#">Update Patient Records</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/doctor/{id}/pharmacyRequest(id = ${doctorDTO.getId()})}">
+                Send A Request To The Pharmacy</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

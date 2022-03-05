@@ -1,5 +1,6 @@
 package com.revature.controller;
 
+import com.revature.dto.DoctorDTO;
 import com.revature.dto.PatientDTO;
 import com.revature.model.Doctor;
 import com.revature.model.User;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -42,21 +44,28 @@ public class DoctorController {
         return "register_success";
     }
 
-    @GetMapping("/doctor")
-    public String loadDoctorHome(){
+    @GetMapping("/doctor/{doctorId}")
+    public String loadDoctorHome(Model model, @PathVariable Integer doctorId){
+        DoctorDTO doctorDTO = doctorService.getDoctorById(doctorId);
+        model.addAttribute("doctorDTO", doctorDTO);
         return "doctor/doctor_home";
     }
 
-    @GetMapping("/doctor/patientSearch")
-    public String loadPatientSearchForm(Model model){
+    @GetMapping("/doctor/{doctorId}/patientSearch")
+    public String loadPatientSearchForm(Model model, @PathVariable Integer doctorId){
+        DoctorDTO doctorDTO = doctorService.getDoctorById(doctorId);
         PatientDTO patientDTO = new PatientDTO();
+        model.addAttribute("doctorDTO", doctorDTO);
         model.addAttribute("patientDTO", patientDTO);
         return "doctor/patient_search";
     }
 
-    @PostMapping(value = "/doctor/patientSearch")
-    public String getPatientData(Model model, @ModelAttribute("patientDTO") PatientDTO patientDTO) {
+    @PostMapping(value = "/doctor/{doctorId}/patientSearch")
+    public String getPatientData(Model model, @ModelAttribute("patientDTO") PatientDTO patientDTO,
+                                 @PathVariable Integer doctorId) {
+        DoctorDTO doctorDTO = doctorService.getDoctorById(doctorId);
         PatientDTO patientData = patientService.getPatientByName(patientDTO.getFirstName(), patientDTO.getLastName());
+        model.addAttribute("doctorDTO", doctorDTO);
         model.addAttribute("patientData", patientData);
         return "doctor/patient_search_result";
     }

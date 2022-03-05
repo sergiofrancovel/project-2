@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Register New User</title>
-    <link th:href="@{/css/new_user}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link th:href="@{/css/home.css}" rel="stylesheet">
 </head>
 <body>
 <h1>What type of user are you?</h1>
-<div id="options" class="d-flex justify-content-center align-items-center">
-    <div class="card">
-        <div class="card-body">
+<div class="container">
+    <div class="options">
+        <div class="card">
             <a th:href="@{/newPatient}">Patient</a>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <a th:href="@{/newDoctor}">Physician</a>
+        <div class="card">
+            <div>
+                <a th:href="@{/newDoctor}">Physician</a>
+            </div>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <a th:href="@{/newPharmacist}">Pharmacist</a>
+        <div class="card">
+            <div>
+                <a th:href="@{/newPharmacist}">Pharmacist</a>
+            </div>
         </div>
     </div>
 </div>

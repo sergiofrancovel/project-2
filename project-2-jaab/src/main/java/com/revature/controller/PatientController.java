@@ -58,8 +58,10 @@ public class PatientController {
         return "register_success";
     }
 
-    @GetMapping("/patient")
-    public String loadPatientHome(){
+    @GetMapping("/patient/{patientId}")
+    public String loadPatientHome(Model model, @PathVariable Integer patientId){
+        PatientDTO patientDTO = patientService.getPatientById(patientId);
+        model.addAttribute("patientDTO", patientDTO);
         return "patient/patient_home";
     }
 
