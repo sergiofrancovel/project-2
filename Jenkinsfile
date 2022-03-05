@@ -59,7 +59,6 @@ pipeline {
                                  dockerImage.push("$currentBuild.number")
                                  dockerImage.push("latest")
                              }
-                         }
                      }
                  }
                }
@@ -77,7 +76,7 @@ pipeline {
                            credentialsId: 'macro-key-339512',
                            verifyDeployments: true
                        ])
-                       cleanWs()
+
 
                     }
                    }
