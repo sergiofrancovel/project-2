@@ -70,7 +70,7 @@ pipeline {
                        branch 'main'
                    }
                    steps{
-                    dir("project2") {
+
 
                        step([$class: 'KubernetesEngineBuilder',
                            projectId: 'macro-key-339512',
@@ -80,7 +80,7 @@ pipeline {
                            credentialsId: 'macro-key-339512',
                            verifyDeployments: true
                        ])
-          }
+
       }
     }
   }
