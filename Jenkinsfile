@@ -3,7 +3,7 @@ pipeline {
             registry = 'keoffor/project-2'
             dockerHubCreds = 'Docker_hub'
             dockerImage = ''
-            deploymentFile = 'k8s/deployment.yml'
+            deploymentFile = 'project2/k8s/deployment.yml'
         }
       agent any
     stages {
