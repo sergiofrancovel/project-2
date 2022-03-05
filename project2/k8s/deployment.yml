@@ -53,5 +53,3 @@ spec:
       name: project2-service
       port:
         number: 8080
-kubelet:
-  anonymousAuth: false
