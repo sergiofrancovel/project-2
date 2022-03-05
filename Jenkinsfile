@@ -70,7 +70,7 @@ pipeline {
                        branch 'main'
                    }
                    steps{
-
+                        echo "build deployment " + deploymentFile
 
                        step([$class: 'KubernetesEngineBuilder',
                            projectId: 'macro-key-339512',
