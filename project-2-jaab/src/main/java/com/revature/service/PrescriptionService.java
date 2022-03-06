@@ -3,7 +3,6 @@ package com.revature.service;
 import com.revature.dao.DoctorRepository;
 import com.revature.dao.PatientRepository;
 import com.revature.dao.PrescriptionRepository;
-import com.revature.dto.DoctorDTO;
 import com.revature.model.Doctor;
 import com.revature.model.Patient;
 import com.revature.model.Prescription;
@@ -46,7 +45,16 @@ public class PrescriptionService {
         prescriptionRepository.save(prescription);
     }
 
+    public Prescription getPrescriptionById(Integer id){
+        return prescriptionRepository.getById(id);
+    }
+
     public Set<Prescription> getAllUncheckedPrescriptions() {
         return prescriptionRepository.getAllUnCheckedPrescriptions();
+    }
+
+    public void updateStatus(Integer id, Status status){
+
+        prescriptionRepository.updateStatus(id, status);
     }
 }

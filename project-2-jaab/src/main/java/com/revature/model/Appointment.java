@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -19,18 +20,16 @@ public class Appointment {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "requesting_doctor")
-    private Doctor doctor;
+    @Column(name = "requesting_doctor", nullable = false)
+    private Integer doctorId;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_for")
-    private Patient patient;
+    @Column(name = "patient_for", nullable = false)
+    private Integer patientId;
 
-    @Column(name = "schedule", nullable = false)
-    private String schedule;
+    @Column(name = "appointment_date", nullable = false)
+    private Date appointmentDate;
 
-    @Column(name = "time_of_appointment")
+    @Column(name = "appointment_time", nullable = false)
     private String appointmentTime;
 
 }

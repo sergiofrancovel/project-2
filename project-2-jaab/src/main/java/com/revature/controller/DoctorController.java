@@ -2,11 +2,11 @@ package com.revature.controller;
 
 import com.revature.dto.DoctorDTO;
 import com.revature.dto.PatientDTO;
+import com.revature.model.Appointment;
 import com.revature.model.Doctor;
+import com.revature.model.Prescription;
 import com.revature.model.User;
-import com.revature.service.DoctorService;
-import com.revature.service.PatientService;
-import com.revature.service.UserService;
+import com.revature.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +21,17 @@ public class DoctorController {
     private final UserService userService;
     private final DoctorService doctorService;
     private final PatientService patientService;
+    private final PrescriptionService prescriptionService;
+    private final AppointmentService appointmentService;
 
     @Autowired
-    public DoctorController(UserService userService, DoctorService doctorService, PatientService patientService) {
+    public DoctorController(UserService userService, DoctorService doctorService, PatientService patientService,
+                            PrescriptionService prescriptionService, AppointmentService appointmentService) {
         this.userService = userService;
         this.doctorService = doctorService;
         this.patientService = patientService;
+        this.prescriptionService = prescriptionService;
+        this.appointmentService = appointmentService;
     }
 
     @GetMapping("/newDoctor")
@@ -70,4 +75,43 @@ public class DoctorController {
         return "doctor/patient_search_result";
     }
 
+    @GetMapping("/doctor/{doctorId}/pharmacyRequest")
+    public String newPharmacyRequestForm(Model model, @PathVariable Integer doctorId){
+        DoctorDTO doctorDTO = doctorService.getDoctorById(doctorId);
+        PatientDTO patientDTO = new PatientDTO();
+        Prescription prescription = new Prescription();
+        model.addAttribute("doctorDTO", doctorDTO);
+        model.addAttribute("patientDTO", patientDTO);
+        model.addAttribute("prescription", prescription);
+        return "doctor/pharmacy_request";
+    }
+
+    @PostMapping("/doctor/{doctorId}/pharmacyRequest")
+    public String pharmacyRequest(@PathVariable Integer doctorId,
+                                  @ModelAttribute("prescription") Prescription prescription,
+                                  @ModelAttribute("patientDTO") PatientDTO patientDTO){
+        prescriptionService.prescriptionRequest(prescription, doctorId, patientDTO.getFirstName(),
+                patientDTO.getLastName());
+        return "prescription_success";
+    }
+
+    @GetMapping("/doctor/{doctorId}/scheduleAppointment")
+    public String newAppointmentForm(Model model, @PathVariable Integer doctorId){
+        DoctorDTO doctorDTO = doctorService.getDoctorById(doctorId);
+        PatientDTO patientDTO = new PatientDTO();
+        Appointment appointment = new Appointment();
+        model.addAttribute("doctorDTO", doctorDTO);
+        model.addAttribute("patientDTO", patientDTO);
+        model.addAttribute("appointment", appointment);
+        return "doctor/schedule_appointment";
+    }
+
+    @PostMapping("/doctor/{doctorId}/scheduleAppointment")
+    public String createNewAppointment(@PathVariable Integer doctorId,
+                                       @ModelAttribute("appointment") Appointment appointment,
+                                       @ModelAttribute("patientDTO") PatientDTO patientDTO) {
+        appointmentService.createNewAppointment(appointment, doctorId, patientDTO.getFirstName(),
+                patientDTO.getLastName());
+        return "appointment_success";
+    }
 }

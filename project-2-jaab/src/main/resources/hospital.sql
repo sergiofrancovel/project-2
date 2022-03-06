@@ -3,6 +3,7 @@ select * from doctor d;
 select * from users u;
 select * from pharmacist ph;
 select * from prescription pr;
+select * from appointment a;
 
 create table if not exists patient (
     id bigint primary key,
@@ -41,6 +42,14 @@ create table if not exists prescription (
     status varchar(13) not null
 );
 
+create table if not exists appointment (
+    id serial primary key,
+    requesting_doctor bigint not null,
+    patient_for bigint not null,
+    appointment_date date not null,
+    appointment_time varchar(5)  not null
+);
+
 create table if not exists users (
     id serial  primary key,
     first_name varchar(20) not null,
@@ -54,6 +63,7 @@ drop table if exists patient CASCADE;
 drop table if exists doctor CASCADE;
 drop table if exists pharmacist CASCADE;
 drop table if exists prescription CASCADE;
+drop table if exists appointment CASCADE;
 drop table if exists users;
  
  
