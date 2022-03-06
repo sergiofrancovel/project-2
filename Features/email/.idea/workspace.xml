@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="10f48a8f-5cbf-4b62-b9e9-631d0786991f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../project-2-newdatabase/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/email/controllers/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/email/controllers/EmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-2-newdatabase/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../project-2-newdatabase/.idea/compiler.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="259o21TC26Ymr0PjeYKeSA6wdkF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project-2-newdatabase" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Sergi\Documents\Job\Revature\Code Practice\projects\project 2\email\src\main\java\com\example\email\dto" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.email.dto" />
+      <recent name="com.example.email.models" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.EmailApplication">
+    <configuration name="EmailApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="email" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.email.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.email" />
+      <option name="MAIN_CLASS_NAME" value="com.example.email.EmailApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailApplicationTests.testEmailAppointmentDTO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="email" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.email.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.email" />
+      <option name="MAIN_CLASS_NAME" value="com.example.email.EmailApplicationTests" />
+      <option name="METHOD_NAME" value="testEmailAppointmentDTO" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailApplicationTests.testEmailNoteDTO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="email" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.email.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.email" />
+      <option name="MAIN_CLASS_NAME" value="com.example.email.EmailApplicationTests" />
+      <option name="METHOD_NAME" value="testEmailNoteDTO" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailApplicationTests.testEmailNoteTemplate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="email" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.email.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.email" />
+      <option name="MAIN_CLASS_NAME" value="com.example.email.EmailApplicationTests" />
+      <option name="METHOD_NAME" value="testEmailNoteTemplate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailApplicationTests.testEmailServiceIntImpl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="email" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.email.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.email" />
+      <option name="MAIN_CLASS_NAME" value="com.example.email.EmailApplicationTests" />
+      <option name="METHOD_NAME" value="testEmailServiceIntImpl" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="email" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.email.EmailApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.EmailApplicationTests" />
+        <item itemvalue="JUnit.EmailApplicationTests.testEmailNoteDTO" />
+        <item itemvalue="JUnit.EmailApplicationTests.testEmailAppointmentDTO" />
+        <item itemvalue="JUnit.EmailApplicationTests.testEmailServiceIntImpl" />
+        <item itemvalue="JUnit.EmailApplicationTests.testEmailNoteTemplate" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="10f48a8f-5cbf-4b62-b9e9-631d0786991f" name="Changes" comment="" />
+      <created>1644948453865</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644948453865</updated>
+      <workItem from="1644948455333" duration="32196000" />
+      <workItem from="1645114645192" duration="12846000" />
+      <workItem from="1645596366302" duration="147000" />
+      <workItem from="1645596602298" duration="2349000" />
+      <workItem from="1645728454611" duration="1825000" />
+      <workItem from="1645756835516" duration="16650000" />
+      <workItem from="1646072041625" duration="14021000" />
+      <workItem from="1646319033619" duration="1071000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/example/email/EmailApplicationTests.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/email$EmailApplicationTests.ic" NAME="EmailApplicationTests Coverage Results" MODIFIED="1646241724947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.email.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/email$EmailApplicationTests_testEmailAppointmentTemplates.ic" NAME="EmailApplicationTests.testEmailAppointmentTemplates Coverage Results" MODIFIED="1646241639010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.email.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/email$EmailApplicationTests_testEmailServiceIntImpl.ic" NAME="EmailApplicationTests.testEmailServiceIntImpl Coverage Results" MODIFIED="1646241661435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.email.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/email$EmailApplicationTests_testEmailNoteTemplate.ic" NAME="EmailApplicationTests.testEmailNoteTemplate Coverage Results" MODIFIED="1646241648807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.email.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/email$EmailApplicationTests_testEmailNoteDTO.ic" NAME="EmailApplicationTests.testEmailNoteDTO Coverage Results" MODIFIED="1646241697040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.email.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/email$EmailApplicationTests_contextLoads.ic" NAME="EmailApplicationTests.contextLoads Coverage Results" MODIFIED="1646185090490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.email.*</FILTER>
+    </SUITE>
+  </component>
+</project>

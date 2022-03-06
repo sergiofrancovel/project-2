@@ -16,11 +16,16 @@ spec:
         app: project2
     spec:
       containers:
+<<<<<<< HEAD
         - image: keoffor/project2:%TAG%
+=======
+        - image: keoffor/project-2:%TAG%
+>>>>>>> 2ec0c5243b963155c166dbbd503639e351d0f090
           imagePullPolicy: Always
           name: project2
           ports:
             - containerPort: 8080
+<<<<<<< HEAD
           livenessProbe:
             httpGet:
               path: /hw
@@ -29,6 +34,9 @@ spec:
             httpGet:
               path: /hw
               port: 8080
+=======
+
+>>>>>>> 2ec0c5243b963155c166dbbd503639e351d0f090
 ---
 apiVersion: v1
 kind: Service
@@ -50,6 +58,12 @@ metadata:
 spec:
   defaultBackend:
     service:
+<<<<<<< HEAD
       name: project-service
       port:
         number: 8080
+=======
+      name: project2-service
+      port:
+        number: 8080
+>>>>>>> 2ec0c5243b963155c166dbbd503639e351d0f090
