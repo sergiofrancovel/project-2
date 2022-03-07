@@ -2,50 +2,35 @@ package com.revature.controller;
 
 import com.revature.dto.DoctorDTO;
 import com.revature.dto.PatientDTO;
-import com.revature.model.Pharmacist;
 import com.revature.model.Prescription;
 import com.revature.model.Status;
-import com.revature.model.User;
 import com.revature.service.DoctorService;
 import com.revature.service.PatientService;
 import com.revature.service.PrescriptionService;
-import com.revature.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Set;
 
 @Controller
 public class PharmacistController {
 
-    private final UserService userService;
     private final DoctorService doctorService;
     private final PatientService patientService;
     private final PrescriptionService prescriptionService;
 
     @Autowired
-    public PharmacistController(UserService userService, DoctorService doctorService, PatientService patientService,
+    public PharmacistController(DoctorService doctorService, PatientService patientService,
                                 PrescriptionService prescriptionService) {
-        this.userService = userService;
         this.doctorService = doctorService;
         this.patientService = patientService;
         this.prescriptionService = prescriptionService;
-    }
-
-    @GetMapping("/newPharmacist")
-    public String newPharmacistForm(Model model){
-        User user = new User();
-        model.addAttribute("user", user);
-        return "pharmacist/new_pharmacist";
-    }
-
-    @PostMapping("/newPharmacist")
-    public String createNewPharmacist(@ModelAttribute("user") User user, Pharmacist pharmacist){
-        userService.createPharmacist(user, pharmacist);
-        return "register_success";
     }
 
     @GetMapping("/pharmacy")
@@ -72,6 +57,6 @@ public class PharmacistController {
         Prescription getPrescription = prescriptionService.getPrescriptionById(prescriptionId);
         prescriptionService.updateStatus(getPrescription.getId(), status);
         BeanUtils.copyProperties(getPrescription, prescription);
-        return "pharmacist/prescription_approved";
+        return "redirect:/pharmacy";
     }
 }

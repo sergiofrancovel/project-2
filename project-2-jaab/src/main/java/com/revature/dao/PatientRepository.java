@@ -24,4 +24,12 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
     @Query("update Patient  p set p.email = :email where p.id = :patientId")
     void updateEmail(@Param("patientId") Integer patientId, @Param("email") String email);
 
+    @Modifying
+    @Query("update Patient  p set p.phoneNumber = :phoneNumber where p.id = :patientId")
+    void updatePhoneNumber(@Param("patientId") Integer patientId, @Param("phoneNumber") Long phoneNumber);
+
+    @Modifying
+    @Query("update Patient  p set p.primaryDoctor = :primaryDoctor where p.id = :patientId")
+    void updatePrimaryDoctor(@Param("patientId") Integer patientId, @Param("primaryDoctor") String primaryDoctor);
+
 }

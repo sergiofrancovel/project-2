@@ -54,7 +54,6 @@ public class PrescriptionService {
     }
 
     public void updateStatus(Integer id, Status status){
-
         prescriptionRepository.updateStatus(id, status);
     }
 }

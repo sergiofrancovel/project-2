@@ -4,6 +4,7 @@ import com.revature.dao.DoctorRepository;
 import com.revature.dao.PatientRepository;
 import com.revature.dao.PharmacistRepository;
 import com.revature.dao.UserRepository;
+import com.revature.dto.PatientDTO;
 import com.revature.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,5 +77,13 @@ public class UserService {
         userRepository.save(user);
         BeanUtils.copyProperties(user, pharmacist);
         pharmacistRepository.save(pharmacist);
+    }
+
+    /**
+     * Updates the user's email in the database
+     * @param email - The new email
+     */
+    public void updateEmail(Integer id, String email){
+        userRepository.updateEmail(id, email);
     }
 }

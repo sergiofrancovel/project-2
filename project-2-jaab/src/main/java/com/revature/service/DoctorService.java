@@ -1,23 +1,36 @@
 package com.revature.service;
 
+import com.revature.dao.AppointmentRepository;
 import com.revature.dao.DoctorRepository;
+import com.revature.dao.PatientRepository;
 import com.revature.dto.DoctorDTO;
+import com.revature.model.Appointment;
 import com.revature.model.Doctor;
+import com.revature.model.Patient;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class DoctorService {
 
     private DoctorRepository doctorRepository;
+    private PatientRepository patientRepository;
+    private AppointmentRepository appointmentRepository;
 
     @Autowired
     public void setDoctorRepository(DoctorRepository doctorRepository) {
         this.doctorRepository = doctorRepository;
+    }
+
+    @Autowired
+    public void setPatientRepository(PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
+    }
+
+    @Autowired
+    public void setAppointmentRepository(AppointmentRepository appointmentRepository) {
+        this.appointmentRepository = appointmentRepository;
     }
 
     public DoctorDTO getDoctorById(Integer id){
@@ -30,12 +43,14 @@ public class DoctorService {
         return copyToDTO(doctor);
     }
 
-    public Set<DoctorDTO> getAllDoctors(){
-        Set<Doctor> doctors = doctorRepository.getAllDoctors();
+    public void createNewAppointment(Appointment appointment, Integer doctorId, String firstName, String lastName){
+        Doctor doctor = doctorRepository.getById(doctorId);
+        Patient patient = patientRepository.getPatientByFirstNameAndLastName(firstName, lastName);
 
-        return doctors.stream()
-                .map(this::copyToDTO)
-                .collect(Collectors.toSet());
+        appointment.setDoctorId(doctor.getId());
+        appointment.setPatientId(patient.getId());
+
+        appointmentRepository.save(appointment);
     }
 
     private DoctorDTO copyToDTO(Doctor doctor){

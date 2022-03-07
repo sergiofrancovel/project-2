@@ -9,10 +9,10 @@
 <form th:action="@{/newPharmacist}" method="post">
     <div id="pharmacist-name">
         <label>
-            <input type="text" placeholder="First Name" th:field="*{user.firstName}">
+            <input type="text" placeholder="First Name" minlength="2" maxlength="20" th:field="*{user.firstName}">
         </label>
         <label>
-            <input type="text" placeholder="Last Name"  th:field="*{user.lastName}">
+            <input type="text" placeholder="Last Name" minlength="2" maxlength="20"  th:field="*{user.lastName}">
         </label>
     </div>
     <div id="pharmacist-login">
@@ -20,7 +20,7 @@
             <input type="email" placeholder="Email" th:field="*{user.email}">
         </label>
         <label>
-            <input type="text" placeholder="Password" th:field="*{user.password}">
+            <input type="text" placeholder="Password" maxlength="100" th:field="*{user.password}">
         </label>
     </div>
     <div>

@@ -58,20 +58,51 @@ public class PatientService {
      * Allows a patient to update their email
      * @param email - The new email
      */
-    public PatientDTO updateEmail(Integer id, String email){
+    public void updateEmail(Integer id, String email){
         PatientDTO patientDTO = new PatientDTO();
         Patient patient = patientRepository.getById(id);
         patientRepository.updateEmail(patient.getId(), email);
         BeanUtils.copyProperties(patient, patientDTO);
-        return patientDTO;
     }
 
+    /**
+     * Allows a patient to update their phone number
+     * @param phoneNumber - The new phone number
+     */
+    public void updatePhoneNumber(Integer id, Long phoneNumber){
+        PatientDTO patientDTO = new PatientDTO();
+        Patient patient = patientRepository.getById(id);
+        patientRepository.updatePhoneNumber(patient.getId(), phoneNumber);
+        BeanUtils.copyProperties(patient, patientDTO);
+    }
+
+    /**
+     * Allows a patient to update their primary care physician
+     * @param primaryDoctor - The new primary doctor
+     */
+    public void updatePrimaryDoctor(Integer id, String primaryDoctor){
+        PatientDTO patientDTO = new PatientDTO();
+        Patient patient = patientRepository.getById(id);
+        patientRepository.updatePrimaryDoctor(patient.getId(), primaryDoctor);
+        BeanUtils.copyProperties(patient, patientDTO);
+    }
+
+    /**
+     * Allows a patient to send email to the selected physician
+     * @param patientDTO - The patient sending the email
+     * @param doctorDTO - The doctor to receive the email
+     */
     public void contactPhysician(PatientDTO patientDTO, DoctorDTO doctorDTO){
         Email email = new Email();
         email.setSender(patientDTO.getEmail());
         email.setRecipient(doctorDTO.getEmail());
     }
 
+    /**
+     * Copies Patient arguments into a PatientDTO object
+     * @param patient - The Patient object to be copied
+     * @return - PatientDTO
+     */
     private PatientDTO copyToDTO(Patient patient){
         PatientDTO patientDTO = new PatientDTO();
         BeanUtils.copyProperties(patient, patientDTO);
